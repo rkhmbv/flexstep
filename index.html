@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toe Align</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <span class="brand-mark">Toe Align</span>
+          <span class="topbar-note">Hallux valgus support</span>
+        </nav>
+
+        <div class="hero-copy">
+          <p class="eyebrow">Move from the ground up</p>
+          <h1>Exercises that support bunion-friendly foot mechanics.</h1>
+          <p class="hero-text">
+            Explore gentle foot release work, hip mobility, knee control, and
+            balance drills often used to support people managing hallux valgus.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#routine-builder">Build a 10-minute session</a>
+            <a class="button button-secondary" href="#exercise-library">Browse exercises</a>
+          </div>
+        </div>
+
+        <section class="hero-panel">
+          <p class="panel-label">Today’s focus</p>
+          <h2 id="focus-title">Foot release + hip mobility</h2>
+          <p id="focus-description">
+            Start by easing plantar tension, then improve upstream mobility so
+            the big toe is not asked to do all the work alone.
+          </p>
+          <div class="focus-tags">
+            <span>Mobility</span>
+            <span>Tennis ball</span>
+            <span>Beginner</span>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="disclaimer">
+          <p>
+            Educational content only. Stop if pain increases, and work with a
+            clinician for personalized guidance, especially if your bunion is
+            painful, worsening, or affecting balance.
+          </p>
+        </section>
+
+        <section class="dashboard-grid" id="progress-dashboard">
+          <article class="dashboard-card feature-card">
+            <p class="eyebrow">Progress</p>
+            <h2>Your daily practice momentum.</h2>
+            <div class="stats-grid">
+              <div class="stat-block">
+                <span class="stat-value" id="points-value">0</span>
+                <span class="stat-label">Points</span>
+              </div>
+              <div class="stat-block">
+                <span class="stat-value" id="streak-value">0</span>
+                <span class="stat-label">Day streak</span>
+              </div>
+              <div class="stat-block">
+                <span class="stat-value" id="sessions-value">0</span>
+                <span class="stat-label">Sessions done</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="dashboard-card milestone-card">
+            <p class="eyebrow">Milestones</p>
+            <h2>Small wins, tracked clearly.</h2>
+            <div class="milestone-list" id="milestone-list"></div>
+          </article>
+
+          <article class="dashboard-card spotify-card">
+            <p class="eyebrow">Spotify</p>
+            <h2>Pair music with your exercise session.</h2>
+            <p class="spotify-status" id="spotify-status">
+              Connect Spotify later with your app client ID. For now, you can
+              still use curated focus playlists inside the app.
+            </p>
+            <div class="spotify-actions">
+              <button class="button button-primary" id="spotify-connect" type="button">
+                Connect Spotify
+              </button>
+              <a class="button button-secondary" id="spotify-open" href="#" target="_blank" rel="noreferrer">
+                Open playlist
+              </a>
+            </div>
+            <div class="embed-shell">
+              <iframe
+                id="spotify-embed"
+                title="Spotify playlist"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              ></iframe>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-grid" id="routine-builder">
+          <div class="section-copy">
+            <p class="eyebrow">Routine Builder</p>
+            <h2>Choose what you want help with today.</h2>
+            <p>
+              Pick a focus area and the app will suggest a short sequence using
+              foot, knee, and hip work that fits together.
+            </p>
+          </div>
+
+          <div class="builder-card">
+            <div class="toggle-row" id="goal-filters" aria-label="Exercise goals"></div>
+            <div class="routine-output">
+              <p class="routine-label">Suggested session</p>
+              <ul id="routine-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-grid library" id="exercise-library">
+          <div class="section-copy">
+            <p class="eyebrow">Exercise Library</p>
+            <h2>Support the foot by training the whole chain.</h2>
+            <p>
+              Hallux valgus often benefits from a wider strategy than toe work
+              alone, so this library includes the foot, ankle, knee, hip, and
+              balance system.
+            </p>
+          </div>
+
+          <div class="filters">
+            <div class="toggle-row" id="category-filters" aria-label="Exercise categories"></div>
+          </div>
+        </section>
+
+        <section class="card-grid" id="exercise-cards" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <template id="exercise-card-template">
+      <article class="exercise-card">
+        <div class="card-header">
+          <p class="card-category"></p>
+          <span class="card-level"></span>
+        </div>
+        <h3 class="card-title"></h3>
+        <p class="card-summary"></p>
+        <div class="card-goals"></div>
+        <dl class="card-details">
+          <div>
+            <dt>Why</dt>
+            <dd class="card-why"></dd>
+          </div>
+          <div>
+            <dt>How long</dt>
+            <dd class="card-dose"></dd>
+          </div>
+          <div>
+            <dt>Equipment</dt>
+            <dd class="card-equipment"></dd>
+          </div>
+        </dl>
+        <button class="button button-primary complete-button" type="button">
+          Mark complete
+        </button>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
